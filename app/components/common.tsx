@@ -2,7 +2,7 @@ import * as React from "react";
 import { Store } from "../states/Store";
 import { Style } from "./style";
 
-const button = Style.registerStyle({ border: "none" });
+const button = Style.registerStyle({ border: "none", fontSize: "1rem" });
 
 export interface BaseProps {
     store: Store;

@@ -8,4 +8,10 @@ const store = new Store();
 
 document.getElementById("style")!.textContent = Style.getStyles();
 
-ReactDOM.render(<App store={store}/>, document.getElementById("main"));
+const main = document.getElementById("main") as HTMLElement;
+
+const resize = () => document.getElementsByTagName("html")[0].style.fontSize = `${main.clientHeight / 30}px`;
+window.addEventListener("resize", resize);
+resize();
+
+ReactDOM.render(<App store={store}/>, main);
