@@ -1,9 +1,8 @@
 import { Rarity } from "./Rarity";
 import { Effect } from "./Effect";
 import { BasicData } from "./BasicData";
-import { CanGet } from "./CanGet";
 
-export class CardProps extends BasicData<CardProps> implements CanGet {
+export class CardProps extends BasicData<CardProps> {
     readonly id!: number;
     readonly rarity!: Rarity;
     readonly name!: string;

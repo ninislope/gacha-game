@@ -1,18 +1,14 @@
 import { BasicData } from "./BasicData";
 import { GachaDrawType } from "./GachaDrawType";
 
-export interface IGacha {
-    /** ガチャ名 */
-    name: string;
-    /** ひき方 */
-    drawTypes: GachaDrawType[];
+/** ガチャ */
+export class GachaProps extends BasicData<GachaProps> {
+    readonly name!: string;
+    readonly drawTypes!: GachaDrawType[];
 }
 
 /** ガチャ */
-export class Gacha extends BasicData<IGacha> implements IGacha {
-    readonly name!: string;
-    readonly drawTypes!: GachaDrawType[];
-
+export class Gacha extends GachaProps {
     draw(drawType: GachaDrawType) {
 
     }
