@@ -14,7 +14,6 @@ export class Savable<T = any> {
                 obj[key] = props[key];
             }
         }
-        console.log(obj);
         return new this(obj);
     }
 
