@@ -1,4 +1,4 @@
-import { MasterData } from "../MasterData";
+import { MasterData } from "../MasterData/index";
 import { observable, computed } from "mobx";
 import { Savable } from "./Savable";
 
