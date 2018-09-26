@@ -1,8 +1,12 @@
-import { Card } from "../MasterData/Card";
-import { observable } from "mobx";
+import { MasterData } from "../MasterData";
+import { observable, computed } from "mobx";
 import { Savable } from "./Savable";
 
 export class UserCard extends Savable<UserCard> {
-    @observable readonly card!: Card;
+    @observable readonly cardId!: number;
     @observable amount!: number;
+
+    @computed get card() {
+        return MasterData.Card.find(this.cardId);
+    }
 }

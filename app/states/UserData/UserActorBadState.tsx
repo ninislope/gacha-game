@@ -1,8 +1,12 @@
-import { observable } from "mobx";
-import { BadState } from "../MasterData/BadState";
+import { observable, computed } from "mobx";
+import { MasterData } from "../MasterData";
 import { Savable } from "./Savable";
 
 export class UserActorBadState extends Savable<UserActorBadState> {
-    @observable readonly badState!: BadState;
+    @observable badStateId!: number;
     @observable temporary!: boolean;
+
+    @computed get badState() {
+        return MasterData.BadState.find(this.badStateId);
+    }
 }
