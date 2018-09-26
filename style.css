@@ -22,12 +22,3 @@ html, body {
 #main * {
     position: absolute;
 }
-
-#main .scene {
-    width: 100%;
-    height: 100%;
-}
-
-#main .button {
-    border: none;
-}

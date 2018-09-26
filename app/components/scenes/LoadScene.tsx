@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import { center } from "../style";
+import { center, scene } from "../style";
 import { Button, BaseProps } from "../common";
 
 export const LoadScene = observer(({store}: BaseProps) => {
@@ -10,7 +10,7 @@ export const LoadScene = observer(({store}: BaseProps) => {
         return <div></div>;
     } else {
         return (
-            <div className="scene">
+            <div className={scene}>
                 <span style={center({top: "50%", height: "2em"}, {fontSize: "2em"})}>Loading...</span>
             </div>
         );

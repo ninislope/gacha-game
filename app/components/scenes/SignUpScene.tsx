@@ -1,10 +1,10 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import { center } from "../style";
+import { center, scene } from "../style";
 import { Button, BaseProps } from "../common";
 
 export const SignUpScene = observer(({store}: BaseProps) => (
-    <div className="scene">
+    <div className={scene}>
         <span style={center({top: "30%", height: "2em"}, {fontSize: "2em"})}>サインアップ</span>
         <span style={center({top: "40%", height: "1.5em"}, {fontSize: "1em"})}>ユーザー名を決めてください</span>
         <input style={center({top: "45%", height: "1.5em", width: "10em"}, {fontSize: "1em"})} onChange={(ev) => store.User.name = ev.target.value}/>

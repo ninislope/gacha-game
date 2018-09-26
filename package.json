@@ -4,6 +4,7 @@
         "@types/react-dom": "^16.0.7"
     },
     "dependencies": {
+        "free-style": "^2.5.2",
         "mobx": "^5.1.0",
         "mobx-react": "^5.2.6"
     }

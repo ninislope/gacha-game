@@ -6,6 +6,7 @@ System.config({
         "react-dom": "https://unpkg.com/react-dom@16.5.0/umd/react-dom.production.min.js",
         "mobx": "https://unpkg.com/mobx@5.1.0/lib/mobx.umd.min.js",
         "mobx-react": "https://unpkg.com/mobx-react@5.2.6/index.min.js",
+        "free-style": "https://unpkg.com/free-style@2.5.2/dist/free-style.js",
     },
     transpiler: "ts",
     typescriptOptions: {
