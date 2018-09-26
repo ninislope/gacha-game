@@ -11,7 +11,7 @@ export class Store {
     @action async load() {
         if (!this.loadState) this.loadState = "loading";
         await wait();
-        const user = load("store");
+        const user = load("user");
         if (user) this.User = User.fromJson(user);
         this.User.startAutoSave();
         this.loadState = "loaded";
