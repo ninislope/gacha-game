@@ -1,13 +1,8 @@
 import { Actor } from "../MasterData/Actor";
 import { observable } from "mobx";
-import { BasicData } from "../MasterData/BasicData";
+import { Savable } from "./Savable";
 
-export interface IUserActor {
-    actor: Actor;
-    level: number;
-}
-
-export class UserActor extends BasicData<IUserActor> {
+export class UserActor extends Savable<UserActor> {
     @observable actor!: Actor;
     @observable level!: number;
 }

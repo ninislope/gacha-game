@@ -1,19 +1,19 @@
 import { SceneManager } from "./SceneManager";
 import { observable, action } from "mobx";
 import { User } from "./UserData/User";
-import { load } from "./autosave";
+import { autosave, load } from "./autosave";
 
 export class Store {
     @observable SceneManager = new SceneManager();
-    @observable User = new User({});
+    @observable User = new User();
     @observable loadState?: "loading" | "loaded";
 
     @action async load() {
         if (!this.loadState) this.loadState = "loading";
         await wait();
         const user = load("user");
-        if (user) this.User = User.fromJson(user);
-        this.User.startAutoSave();
+        if (user) this.User = User.fromJson(user) as any;
+        autosave("user", this.User);
         this.loadState = "loaded";
     }
 

@@ -1,10 +1,10 @@
-import { autorun } from "mobx";
+import { autorun, toJS } from "mobx";
 import { CanGet } from "./MasterData/CanGet";
 import { Savable } from "./UserData/Savable";
 
 export function autosave(name: string, object: Savable) {
     autorun(() => {
-        localStorage.setItem(name, JSON.stringify(object.toJson()));
+        localStorage.setItem(name, JSON.stringify(toJS(object)));
     });
 }
 
@@ -18,5 +18,5 @@ export function ids(objects: CanGet[]) {
 }
 
 export function jsons(objects: Savable[]) {
-    return objects.map((object) => object.toJson());
+    return objects.map((object) => toJS(object));
 }
