@@ -1,0 +1,10 @@
+{
+    "devDependencies": {
+        "@types/react": "^16.4.13",
+        "@types/react-dom": "^16.0.7"
+    },
+    "dependencies": {
+        "mobx": "^5.1.0",
+        "mobx-react": "^5.2.6"
+    }
+}
