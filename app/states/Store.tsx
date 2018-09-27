@@ -1,4 +1,4 @@
-import { SceneManager } from "./SceneManager";
+import { SceneManager, SceneId } from "./SceneManager";
 import { observable, action } from "mobx";
 import { User } from "./UserData/User";
 import { autosave, load } from "./autosave";
@@ -19,6 +19,10 @@ export class Store {
 
     @action destroy() {
         localStorage.clear();
+    }
+
+    callGoto(sceneId: SceneId) {
+        return (() => this.SceneManager.goto(sceneId));
     }
 }
 
