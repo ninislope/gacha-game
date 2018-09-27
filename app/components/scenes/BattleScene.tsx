@@ -1,7 +1,7 @@
 import * as React from "react";
 import { observer } from "mobx-react";
 import { center, scene } from "../style";
-import { Button, BaseProps } from "../common";
+import { Button, BaseProps } from "../Common";
 
 export const BattleScene = observer(({store}: BaseProps) => (
     <div className={scene}>

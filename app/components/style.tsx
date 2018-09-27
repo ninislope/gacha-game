@@ -2,6 +2,7 @@ import * as FreeStyle from "free-style";
 export const Style = FreeStyle.create();
 
 export const scene = Style.registerStyle({
+    position: "relative",
     width: "100%",
     height: "100%",
 });
