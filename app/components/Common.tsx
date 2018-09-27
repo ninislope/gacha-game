@@ -27,6 +27,7 @@ export interface ButtonProps extends Optional<CenterProps>, React.HTMLAttributes
     fontSize?: string;
     color?: string;
     background?: string;
+    bold?: boolean;
     goto?: SceneId;
 }
 
@@ -40,6 +41,7 @@ export const Button: React.SFC<ButtonProps> = (props) =>
             position: props.relative ? "relative" : "absolute",
             color: props.color || "#fff",
             background: props.background || "#f00",
+            fontWeight: props.bold ? "bold" : (props.style || {}).fontWeight,
             ...center({height: "2rem", ...props} as CenterProps),
             ...(props.style || {}),
         }}>
