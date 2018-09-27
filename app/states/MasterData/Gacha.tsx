@@ -3,7 +3,6 @@ import { GachaDrawType } from "./GachaDrawType";
 
 /** ガチャ */
 export class GachaProps extends BasicData<GachaProps> {
-    readonly name!: string;
     readonly drawTypes!: GachaDrawType[];
 }
 

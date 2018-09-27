@@ -1,6 +1,6 @@
-import { Card } from "./Card";
+import { Rarity } from "./Rarity";
 
 export interface GachaContent {
     weight: number;
-    item: Card;
+    item: { rarity: Rarity };
 }

@@ -1,14 +1,15 @@
 import { DataList } from "./DataList";
 
 import { Actor } from "./Actor";
-import { BadState } from "./BadState";
-import { Card } from "./Card";
+import { State } from "./State";
+import { Equipment } from "./Equipment";
+import { EquipmentType } from "./EquipmentType";
 import { Rarity } from "./Rarity";
 
 export {
     Actor,
-    BadState,
-    Card,
+    State,
+    Equipment,
     Rarity,
 };
 
@@ -16,10 +17,10 @@ export const MasterData = {
     Actor: new DataList([
         new Actor({id: 1, name: ""}),
     ]),
-    Card: new DataList([
-        new Card({id: 1, rarity: Rarity.N, name: "", description: "", effects: []})
+    Equipment: new DataList([
+        new Equipment({id: 1, rarity: Rarity.N, name: "", description: "", effects: [], type: EquipmentType.Weapon, parts: []})
     ]),
-    BadState: new DataList([
-        new BadState({id: 1, name: "", description: ""}),
+    State: new DataList([
+        new State({id: 1, name: "", description: "", effects: [], rarity: Rarity.N}),
     ]),
 };

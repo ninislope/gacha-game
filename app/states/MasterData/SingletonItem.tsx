@@ -1,11 +1,11 @@
 import { BasicData } from "./BasicData";
 
-export class BadStateProps extends BasicData<BadStateProps> {
+export class SingletonItemProps extends BasicData<SingletonItemProps> {
     readonly id!: number;
     readonly name!: string;
     readonly description!: string;
 }
 
-export class BadState extends BadStateProps {
+export class SingletonItem extends SingletonItemProps {
 
 }
