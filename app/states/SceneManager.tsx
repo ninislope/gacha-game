@@ -2,7 +2,7 @@ import { observable, computed, action } from "mobx";
 import { StartScene } from "../components/scenes/StartScene";
 import { HomeScene } from "../components/scenes/HomeScene";
 import { LoadScene } from "../components/scenes/LoadScene";
-import { SignUpScene } from "../components/scenes/SignupScene";
+import { SignUpScene } from "../components/scenes/SignUpScene";
 import { GachaScene } from "../components/scenes/GachaScene";
 
 const scenes = {
