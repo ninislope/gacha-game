@@ -4,7 +4,7 @@ import { Store } from "../Store";
 export class HomeSceneState {
     store!: Store;
 
-    @observable userActorIndex?: number;
+    @observable userActorIndex!: number;
     @action nextUserActor() {
         if (this.userActorIndex == null) this.userActorIndex = 0;
         if (this.userActorIndex + 1 >= this.store.User.userActors.length) {
