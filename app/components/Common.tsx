@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Store } from "../states/Store";
-import { SceneId } from "../states/SceneManager";
+import { SceneId } from "../states/Runtime/SceneManager";
 import { Style, CenterProps, center } from "./style";
 
 const button = Style.registerStyle({
