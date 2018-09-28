@@ -1,3 +1,5 @@
+export const dummy = 1; // systemjsがなぜかエラる
+
 export abstract class BaseRecordList<IRecord extends {id: number}, Record extends IRecord> {
     abstract readonly name: string;
 

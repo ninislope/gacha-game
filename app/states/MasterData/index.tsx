@@ -20,3 +20,4 @@ import "./Skill";
 import "./State";
 import "./StepUpGacha";
 import "./Story";
+import "./Tips";

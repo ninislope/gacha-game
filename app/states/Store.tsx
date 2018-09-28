@@ -26,4 +26,4 @@ export class Store {
     }
 }
 
-const wait = () => new Promise((resolve) => setTimeout(resolve, 100));
+const wait = () => new Promise((resolve) => setTimeout(resolve, 1500));
