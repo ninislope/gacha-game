@@ -9,8 +9,12 @@ export abstract class BaseRecordList<IRecord extends {id: number}, Record extend
 
     index: {[id: string]: number} = {};
 
+    async load() {
+        if (!this.records.length) await this.fetchData();
+    }
+
     async fetchData() {
-        const response = await fetch(`${this.name}.json`);
+        const response = await fetch(`masterData/data/${this.name}.json`);
         if (!response.ok) throw new Error("ERROR: " + response.status);
         this.setData(await response.json());
     }

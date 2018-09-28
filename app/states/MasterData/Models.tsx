@@ -435,24 +435,24 @@ export class StoryList extends BaseRecordList<IStory, Story> {
 
 export const $Story = new StoryList();
 
-export interface ITips extends IBaseRecord {
+export interface ITip extends IBaseRecord {
 
     title: string;
 
-    description: string;
+    content: string;
 }
 
-export class Tips extends BaseRecord<ITips, Tips> implements ITips {
+export class Tip extends BaseRecord<ITip, Tip> implements ITip {
 
     readonly title!: string;
 
-    readonly description!: string;
+    readonly content!: string;
 }
 
-export class TipsList extends BaseRecordList<ITips, Tips> {
-    readonly name = "Tips";
-    readonly recordClass = Tips;
+export class TipList extends BaseRecordList<ITip, Tip> {
+    readonly name = "Tip";
+    readonly recordClass = Tip;
 }
 
-export const $Tips = new TipsList();
+export const $Tip = new TipList();
 
