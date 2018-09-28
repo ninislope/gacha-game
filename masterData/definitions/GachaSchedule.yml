@@ -1,3 +1,4 @@
-gachaId: Gacha
-startAt: Date
-endAt: Date
+gachaType: string
+gachaId: number
+startAt: Date?
+endAt: Date?

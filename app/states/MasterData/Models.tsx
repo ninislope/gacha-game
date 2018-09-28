@@ -277,22 +277,24 @@ export const $GachaDrawTypeName = new GachaDrawTypeNameList();
 
 export interface IGachaSchedule extends IBaseRecord {
 
+    gachaType: string;
+
     gachaId: number;
 
-    startAt: Date;
+    startAt?: Date;
 
-    endAt: Date;
+    endAt?: Date;
 }
 
 export class GachaSchedule extends BaseRecord<IGachaSchedule, GachaSchedule> implements IGachaSchedule {
 
+    readonly gachaType!: string;
+
     readonly gachaId!: number;
 
-    get gacha() { return $Gacha.find(this.gachaId); }
+    readonly startAt?: Date;
 
-    readonly startAt!: Date;
-
-    readonly endAt!: Date;
+    readonly endAt?: Date;
 }
 
 export class GachaScheduleList extends BaseRecordList<IGachaSchedule, GachaSchedule> {
