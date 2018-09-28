@@ -1,2 +1,4 @@
 name: string
 description: string
+# 起動する条件など持つ
+# アクティブ（使用可）・パッシブの別はEffectをみて判断する
