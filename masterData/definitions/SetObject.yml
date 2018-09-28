@@ -1,3 +1,4 @@
 actorId: Actor?
 equipmentId: Equipment?
-stateIds: State[]?
+actorStateIds: State[]?
+equipmentStateIds: State[]?

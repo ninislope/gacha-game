@@ -346,7 +346,9 @@ export interface ISetObject extends IBaseRecord {
 
     equipmentId?: number;
 
-    stateIds?: number[];
+    actorStateIds?: number[];
+
+    equipmentStateIds?: number[];
 }
 
 export class SetObject extends BaseRecord<ISetObject, SetObject> implements ISetObject {
@@ -359,9 +361,13 @@ export class SetObject extends BaseRecord<ISetObject, SetObject> implements ISet
 
     get equipment() { return this.equipmentId ? $Equipment.find(this.equipmentId) : undefined; }
 
-    readonly stateIds?: number[];
+    readonly actorStateIds?: number[];
 
-    get states() { return this.stateIds ? $State.findAll(this.stateIds) : undefined; }
+    get actorStates() { return this.actorStateIds ? $State.findAll(this.actorStateIds) : undefined; }
+
+    readonly equipmentStateIds?: number[];
+
+    get equipmentStates() { return this.equipmentStateIds ? $State.findAll(this.equipmentStateIds) : undefined; }
 }
 
 export class SetObjectList extends BaseRecordList<ISetObject, SetObject> {
