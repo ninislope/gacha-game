@@ -2,6 +2,7 @@ import * as React from "react";
 import { observer } from "mobx-react";
 import { scene, Style } from "../style";
 import { BaseProps } from "../Common";
+import { SceneId } from "../../states/Runtime/SceneManager";
 
 const titleBarStyle = Style.registerStyle({
     position: "absolute",
@@ -34,13 +35,14 @@ const backButtonStyle = Style.registerStyle({
 export interface UISceneProps extends BaseProps {
     title: string;
     hideHomeButton?: boolean;
+    backTo?: SceneId;
 }
 
-export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHomeButton, children}: UISceneProps) => (
+export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHomeButton, children, backTo}: UISceneProps) => (
     <div className={scene}>
         <div className={titleBarStyle}>
             <div className={titleBarContentStyle}>
-                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto("home")}>⮜</button>}
+                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home")}>⮜</button>}
                 <span className={titleStyle}>{title}</span>
             </div>
         </div>

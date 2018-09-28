@@ -6,6 +6,7 @@ import * as Models from "./MasterData/index";
 import { BaseRecordList } from "./MasterData/BaseRecordList";
 import { LoadSceneState } from "./Runtime/LoadSceneState";
 import { HomeSceneState } from "./Runtime/HomeSceneState";
+import { ActorSceneState } from "./Runtime/ActorSceneState";
 
 export class Store {
     @observable SceneManager = new SceneManager();
@@ -14,6 +15,7 @@ export class Store {
     @observable sceneStates = {
         load: new LoadSceneState(),
         home: new HomeSceneState(),
+        actor: new ActorSceneState(),
     };
 
     constructor() {

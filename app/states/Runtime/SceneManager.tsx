@@ -5,6 +5,8 @@ import { LoadScene } from "../../components/scenes/LoadScene";
 import { SignUpScene } from "../../components/scenes/SignUpScene";
 import { GachaScene } from "../../components/scenes/GachaScene";
 import { Store } from "../Store";
+import { ActorsScene } from "../../components/scenes/ActorsScene";
+import { ActorScene } from "../../components/scenes/ActorScene";
 
 const scenes = {
     start: StartScene,
@@ -12,6 +14,8 @@ const scenes = {
     signup: SignUpScene,
     home: HomeScene,
     gacha: GachaScene,
+    actors: ActorsScene,
+    actor: ActorScene,
 };
 
 const sceneStart: {[T in SceneId]?: (sceneManager: SceneManager) => any} = {
