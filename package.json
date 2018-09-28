@@ -1,4 +1,7 @@
 {
+    "scripts": {
+        "gen:schema": "ts-node scripts/convert.ts"
+    },
     "devDependencies": {
         "@types/react": "^16.4.13",
         "@types/react-dom": "^16.0.7"
