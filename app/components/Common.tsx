@@ -48,6 +48,9 @@ export const Button: React.SFC<ButtonProps> = (props) =>
         <span className={buttonText}>{props.children}</span>
     </button>;
 
+export const SmallButton: React.SFC<ButtonProps> = (props) =>
+    <Button width="8rem" height="2rem" {...props} style={{fontSize: "1rem", ...(props.style || {})}}>{props.children}</Button>
+
 export const NormalButton: React.SFC<ButtonProps> = (props) =>
     <Button width="9rem" height="3rem" {...props} style={{fontSize: "1.2rem", ...(props.style || {})}}>{props.children}</Button>
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import { BaseProps } from "../Common";
+import { BaseProps, SmallButton } from "../Common";
 import { UIScene } from "./UIScene";
 import { UserActorView } from "../components/UserActorView";
 
@@ -15,7 +15,15 @@ export const ActorScene = observer(({store}: BaseProps) => {
                 style={{height: "100%"}}
                 />
             <dl>
-                <dt>名前</dt><dd>{actor.name}</dd>
+                <dt>名前</dt>
+                <dd>
+                    {actor.name}
+                    {
+                        store.User.favoriteActorIndex === store.User.userActors.indexOf(userActor) ?
+                        "[お気に入り]" :
+                        <SmallButton relative={true} background="#f60" onClick={() => store.User.favoriteActorIndex = store.User.userActors.indexOf(userActor)}>→お気に入り</SmallButton>
+                    }
+                </dd>
                 <dt>レベル</dt><dd>{userActor.level}</dd>
                 <dt>装備</dt>
                 <dd>
