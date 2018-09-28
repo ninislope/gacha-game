@@ -9,11 +9,20 @@ export abstract class BaseRecordList<IRecord extends {id: number}, Record extend
 
     index: {[id: string]: number} = {};
 
+    private fetching?: Promise<void>;
+
     async load() {
         if (!this.records.length) await this.fetchData();
     }
 
     async fetchData() {
+        if (this.fetching) return this.fetching;
+        this.fetching = this.fetchDataCore();
+        await this.fetching;
+        this.fetching = undefined;
+    }
+
+    private async fetchDataCore() {
         const response = await fetch(`masterData/data/${this.name}.json`);
         if (!response.ok) throw new Error("ERROR: " + response.status);
         this.setData(await response.json());
