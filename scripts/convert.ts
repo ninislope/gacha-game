@@ -5,6 +5,7 @@ import { FileSystemObject } from "fso";
 const scriptDir = new FileSystemObject(__dirname);
 const masterDataDefinitionDir = scriptDir.parent().join("masterData/definitions");
 const masterDataCodeDir = scriptDir.parent().join("app/states/MasterData");
+const masterDataSchemaDir = scriptDir.parent().join("masterData/schemas");
 
 const schemaObjects: {[name: string]: SchemaObject} = {};
 for (const schemaFile of masterDataDefinitionDir.childrenSync()) {
@@ -20,4 +21,10 @@ masterDataCodeDir.join(schemas.modelFileName).writeFileSync(schemas.toModelTS())
 for (const schema of schemas.schemas) {
     const extensionFile = masterDataCodeDir.join(schema.ExtensionFileName);
     if (!extensionFile.existsSync()) extensionFile.writeFileSync(schema.toExtensionTS());
+}
+
+masterDataSchemaDir.mkdirAllSync();
+for (const schema of schemas.schemas) {
+    const jsonSchemaFile = masterDataSchemaDir.join(schema.jsonSchemaFileName);
+    jsonSchemaFile.writeFileSync(JSON.stringify(schema.toJsonSchema(), null, "  "));
 }
