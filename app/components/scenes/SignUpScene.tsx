@@ -5,6 +5,7 @@ import { NormalButton, BaseProps } from "../Common";
 import { Store } from "../../states/Store";
 import { UserActor } from "../../states/UserData/UserActor";
 import { UserState } from "../../states/UserData/UserState";
+import { UserItem } from "../../states/UserData/UserItem";
 
 function signUp(store: Store) {
     if (store.User.name) {
@@ -19,6 +20,11 @@ function signUp(store: Store) {
                 level: 1,
                 userStates: [new UserState({stateId: 1005, curable: true})],
             }),
+        );
+        store.User.userItems.push(
+            new UserItem({itemId: 1, amount: 10}),
+            new UserItem({itemId: 10, amount: 100}),
+            new UserItem({itemId: 1001, amount: 5}),
         );
         store.SceneManager.goto("home");
     } else {

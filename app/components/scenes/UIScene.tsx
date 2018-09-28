@@ -32,6 +32,32 @@ const backButtonStyle = Style.registerStyle({
     cursor: "pointer",
 });
 
+const infoBarStyle = Style.registerStyle({
+    position: "absolute",
+    fontSize: "1.2rem",
+    lineHeight: "2rem",
+    top: 0,
+    right: "0em",
+    width: "40%",
+    height: "2rem",
+    background: "transparent",
+    padding: "0.5em",
+});
+
+const userNameStyle = Style.registerStyle({
+    fontWeight: "bold",
+    color: "#933",
+    textShadow: "#999 0.05em 0.05em",
+    padding: "0.5em",
+});
+
+const gemStyle = Style.registerStyle({
+    fontWeight: "bold",
+    color: "#cc6",
+    background: "#ffd",
+    padding: "0.5em",
+});
+
 export interface UISceneProps extends BaseProps {
     title: string;
     hideHomeButton?: boolean;
@@ -45,6 +71,11 @@ export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHom
                 {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home")}>⮜</button>}
                 <span className={titleStyle}>{title}</span>
             </div>
+        </div>
+        <div className={infoBarStyle}>
+            <span className={userNameStyle}>{store.User.name}</span>
+            <span className={gemStyle}>石:{(store.User.gem || {amount: 0}).amount}</span>
+            <span className={gemStyle}>コイン:{(store.User.coin || {amount: 0}).amount}</span>
         </div>
         {children}
     </div>
