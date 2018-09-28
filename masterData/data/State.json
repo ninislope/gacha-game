@@ -1,0 +1,37 @@
+[
+  {
+    "description": "HPが減っていく",
+    "effectIds": "",
+    "id": 1001,
+    "name": "毒",
+    "rarityId": 1
+  },
+  {
+    "description": "行動不能",
+    "effectIds": null,
+    "id": 1002,
+    "name": "麻痺",
+    "rarityId": 1
+  },
+  {
+    "description": "行動不能",
+    "effectIds": null,
+    "id": 1003,
+    "name": "眠り",
+    "rarityId": 1
+  },
+  {
+    "description": "スタン",
+    "effectIds": null,
+    "id": 1004,
+    "name": "スタン",
+    "rarityId": 1
+  },
+  {
+    "description": "混乱",
+    "effectIds": null,
+    "id": 1005,
+    "name": "酔い",
+    "rarityId": 1
+  }
+]
