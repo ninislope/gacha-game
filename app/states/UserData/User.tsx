@@ -11,7 +11,9 @@ export interface IUser {
 
 export class User extends Savable<IUser> {
     static types = {
-        actors: UserActor,
+        userActors: UserActor,
+        userEquipments: UserEquipment,
+        userStates: UserState,
     };
 
     @observable name!: string;

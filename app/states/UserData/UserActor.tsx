@@ -14,6 +14,20 @@ export class UserActorProps extends Savable<UserActorProps> {
 }
 
 export class UserActor extends UserActorProps {
+    static types = {
+        userEquipments: UserEquipment,
+        userStates: UserState,
+    };
+
+    @observable userEquipments!: UserEquipment[];
+    @observable userStates!: UserState[];
+
+    constructor(props: UserActorProps) {
+        super(props);
+        if (!this.userEquipments) this.userEquipments = [];
+        if (!this.userStates) this.userStates = [];
+    }
+
     @computed get actor() {
         return Models.$Actor.find(this.actorId);
     }

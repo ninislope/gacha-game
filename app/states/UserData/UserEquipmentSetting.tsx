@@ -9,4 +9,7 @@ export class UserEquipmentSettingProps extends Savable<UserEquipmentSettingProps
 
 /** 装備の組設定 */
 export class UserEquipmentSetting extends UserEquipmentSettingProps {
+    static types = {
+        userEquipments: UserEquipment,
+    };
 }

@@ -6,9 +6,9 @@ export class Savable<T = any> {
             const type = types[key as string];
             if (type) {
                 if (props[key] instanceof Array) {
-                    obj[key] = (props[key] as any).map((item: any) => new type(item));
+                    obj[key] = (props[key] as any).map((item: any) => type.fromJson(item));
                 } else {
-                    obj[key] = new type(props[key]);
+                    obj[key] = type.fromJson(props[key]);
                 }
             } else {
                 obj[key] = props[key];
