@@ -62,7 +62,7 @@ export class EffectList extends BaseRecordList<IEffect, Effect> {
 
 export const $Effect = new EffectList();
 
-export interface IEquipment extends IBaseRecord {
+export interface IEquipment extends IEffectiveItemBase {
 
     rarityId: number;
 
@@ -71,7 +71,7 @@ export interface IEquipment extends IBaseRecord {
     parts: number[];
 }
 
-export class Equipment extends BaseRecord<IEquipment, Equipment> implements IEquipment {
+export class Equipment extends EffectiveItemBase<IEquipment, Equipment> implements IEquipment {
 
     readonly rarityId!: number;
 
@@ -84,7 +84,7 @@ export class Equipment extends BaseRecord<IEquipment, Equipment> implements IEqu
     readonly parts!: number[];
 }
 
-export class EquipmentList extends BaseRecordList<IEquipment, Equipment> {
+export class EquipmentList extends EffectiveItemBaseList<IEquipment, Equipment> {
     readonly name = "Equipment";
     readonly recordClass = Equipment;
 }

@@ -1,3 +1,4 @@
+$extend: EffectiveItemBase
 rarityId: Rarity
 typeId: EquipmentType
 parts:
