@@ -395,9 +395,15 @@ export class SingleGachaList extends BaseRecordList<ISingleGacha, SingleGacha> {
 export const $SingleGacha = new SingleGachaList();
 
 export interface ISkill extends IEffectiveItemBase {
+
+    typeId: number;
 }
 
 export class Skill extends EffectiveItemBase<ISkill, Skill> implements ISkill {
+
+    readonly typeId!: number;
+
+    get type() { return $SkillType.find(this.typeId); }
 }
 
 export class SkillList extends EffectiveItemBaseList<ISkill, Skill> {
@@ -407,11 +413,28 @@ export class SkillList extends EffectiveItemBaseList<ISkill, Skill> {
 
 export const $Skill = new SkillList();
 
+export interface ISkillType extends IBaseRecord {
+
+    name: string;
+}
+
+export class SkillType extends BaseRecord<ISkillType, SkillType> implements ISkillType {
+
+    readonly name!: string;
+}
+
+export class SkillTypeList extends BaseRecordList<ISkillType, SkillType> {
+    readonly name = "SkillType";
+    readonly recordClass = SkillType;
+}
+
+export const $SkillType = new SkillTypeList();
+
 export interface IState extends IEffectiveItemBase {
 
     rarityId: number;
 
-    type: number;
+    typeId: number;
 }
 
 export class State extends EffectiveItemBase<IState, State> implements IState {
@@ -420,7 +443,9 @@ export class State extends EffectiveItemBase<IState, State> implements IState {
 
     get rarity() { return $Rarity.find(this.rarityId); }
 
-    readonly type!: number;
+    readonly typeId!: number;
+
+    get type() { return $StateType.find(this.typeId); }
 }
 
 export class StateList extends EffectiveItemBaseList<IState, State> {
@@ -429,6 +454,23 @@ export class StateList extends EffectiveItemBaseList<IState, State> {
 }
 
 export const $State = new StateList();
+
+export interface IStateType extends IBaseRecord {
+
+    name: string;
+}
+
+export class StateType extends BaseRecord<IStateType, StateType> implements IStateType {
+
+    readonly name!: string;
+}
+
+export class StateTypeList extends BaseRecordList<IStateType, StateType> {
+    readonly name = "StateType";
+    readonly recordClass = StateType;
+}
+
+export const $StateType = new StateTypeList();
 
 export interface IStepUpGacha extends IBaseRecord {
 
