@@ -14,6 +14,11 @@ function signUp(store: Store) {
                 level: 1,
                 userStates: [new UserState({stateId: 1002, curable: true})],
             }),
+            new UserActor({
+                actorId: 2,
+                level: 1,
+                userStates: [new UserState({stateId: 1002, curable: true})],
+            }),
         );
         store.SceneManager.goto("home");
     } else {
