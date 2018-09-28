@@ -12,6 +12,7 @@ export const ActorScene = observer(({store}: BaseProps) => {
             <UserActorView
                 userActor={userActor}
                 withStates={true}
+                style={{height: "100%"}}
                 />
             <dl>
                 <dt>名前</dt><dd>{actor.name}</dd>
