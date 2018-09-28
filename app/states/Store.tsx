@@ -23,11 +23,11 @@ export class Store {
 
     @action async load() {
         if (!this.loadState) this.loadState = "loading";
-        await wait();
 
         try {
             await this.loadMasterData();
         } catch (e) { console.error(e); }
+        await wait();
 
         const user = load("user");
         if (user) this.User = User.fromJson(user) as any;
