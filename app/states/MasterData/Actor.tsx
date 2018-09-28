@@ -1,10 +1,15 @@
-import { BasicData } from "./BasicData";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class ActorProps extends BasicData<ActorProps> {
-    readonly id!: number;
-    readonly name!: string;
+export class ActorExt {
+}
+export class ActorListExt {
 }
 
-export class Actor extends ActorProps {
+applyRecordExtension(Models.Actor, ActorExt);
+applyRecordExtension(Models.ActorList, ActorListExt);
 
+declare module "./Models" {
+    interface Actor extends ActorExt { }
+    interface ActorList extends ActorListExt { }
 }

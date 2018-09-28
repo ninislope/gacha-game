@@ -1,5 +1,15 @@
-// flags
-export const enum EquipmentPart {
-    Head = 0b1,
-    Face = 0b10,
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
+
+export class EquipmentPartExt {
+}
+export class EquipmentPartListExt {
+}
+
+applyRecordExtension(Models.EquipmentPart, EquipmentPartExt);
+applyRecordExtension(Models.EquipmentPartList, EquipmentPartListExt);
+
+declare module "./Models" {
+    interface EquipmentPart extends EquipmentPartExt { }
+    interface EquipmentPartList extends EquipmentPartListExt { }
 }

@@ -1,8 +1,15 @@
-import { EffectiveItemBaseProps } from "./EffectiveItemBase";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class SkillProps extends EffectiveItemBaseProps<SkillProps> {
+export class SkillExt {
+}
+export class SkillListExt {
 }
 
-export class Skill extends SkillProps {
+applyRecordExtension(Models.Skill, SkillExt);
+applyRecordExtension(Models.SkillList, SkillListExt);
 
+declare module "./Models" {
+    interface Skill extends SkillExt { }
+    interface SkillList extends SkillListExt { }
 }

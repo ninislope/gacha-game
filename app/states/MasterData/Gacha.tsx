@@ -1,14 +1,15 @@
-import { BasicData } from "./BasicData";
-import { GachaDrawType } from "./GachaDrawType";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-/** ガチャ */
-export class GachaProps extends BasicData<GachaProps> {
-    readonly drawTypes!: GachaDrawType[];
+export class GachaExt {
+}
+export class GachaListExt {
 }
 
-/** ガチャ */
-export class Gacha extends GachaProps {
-    draw(drawType: GachaDrawType) {
+applyRecordExtension(Models.Gacha, GachaExt);
+applyRecordExtension(Models.GachaList, GachaListExt);
 
-    }
+declare module "./Models" {
+    interface Gacha extends GachaExt { }
+    interface GachaList extends GachaListExt { }
 }

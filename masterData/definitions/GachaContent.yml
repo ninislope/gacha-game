@@ -1,0 +1,3 @@
+weight: number
+contentType: string
+contentId: number

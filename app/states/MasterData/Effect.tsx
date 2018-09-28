@@ -1,10 +1,15 @@
-import { BasicData } from "./BasicData";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class EffectProps extends BasicData<Effect> {
-    readonly name!: string;
-    readonly description!: string;
+export class EffectExt {
+}
+export class EffectListExt {
 }
 
-export class Effect extends EffectProps {
+applyRecordExtension(Models.Effect, EffectExt);
+applyRecordExtension(Models.EffectList, EffectListExt);
 
+declare module "./Models" {
+    interface Effect extends EffectExt { }
+    interface EffectList extends EffectListExt { }
 }

@@ -1,11 +1,15 @@
-import { BasicData } from "./BasicData";
-import { Gacha } from "./Gacha";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class GachaScheduleProps extends BasicData<GachaScheduleProps> {
-    readonly gacha!: Gacha;
-    readonly startAt!: Date;
-    readonly endAt!: Date;
+export class GachaScheduleExt {
+}
+export class GachaScheduleListExt {
 }
 
-export class GachaSchedule extends GachaScheduleProps {
+applyRecordExtension(Models.GachaSchedule, GachaScheduleExt);
+applyRecordExtension(Models.GachaScheduleList, GachaScheduleListExt);
+
+declare module "./Models" {
+    interface GachaSchedule extends GachaScheduleExt { }
+    interface GachaScheduleList extends GachaScheduleListExt { }
 }

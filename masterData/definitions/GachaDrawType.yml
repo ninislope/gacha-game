@@ -1,0 +1,13 @@
+gachaDrawTypeNameId: GachaDrawTypeName
+requireItemId:
+  type: Item
+  title: 消費アイテム
+requireItemAmount:
+  type: number
+  title: 消費アイテム個数
+allowRepeatCount:
+  type: number?
+  title: 一回のボタン操作での許容リピート数(1連ガチャを10回引く的な)
+drawIds:
+  type: GachaDraw[]
+  title: 各引きの中身

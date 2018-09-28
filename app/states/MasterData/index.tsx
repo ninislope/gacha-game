@@ -1,26 +1,22 @@
-import { DataList } from "./DataList";
+export * from "./Models";
 
-import { Actor } from "./Actor";
-import { State } from "./State";
-import { Equipment } from "./Equipment";
-import { EquipmentType } from "./EquipmentType";
-import { Rarity } from "./Rarity";
-
-export {
-    Actor,
-    State,
-    Equipment,
-    Rarity,
-};
-
-export const MasterData = {
-    Actor: new DataList([
-        new Actor({id: 1, name: ""}),
-    ]),
-    Equipment: new DataList([
-        new Equipment({id: 1, rarity: Rarity.N, name: "", description: "", effects: [], type: EquipmentType.Weapon, parts: []})
-    ]),
-    State: new DataList([
-        new State({id: 1, name: "", description: "", effects: [], rarity: Rarity.N}),
-    ]),
-};
+import "./EffectiveItemBase";
+import "./Actor";
+import "./Effect";
+import "./Equipment";
+import "./EquipmentPart";
+import "./EquipmentType";
+import "./Gacha";
+import "./GachaContent";
+import "./GachaContentGroup";
+import "./GachaDraw";
+import "./GachaDrawType";
+import "./GachaDrawTypeName";
+import "./GachaSchedule";
+import "./Item";
+import "./Rarity";
+import "./SingleGacha";
+import "./Skill";
+import "./State";
+import "./StepUpGacha";
+import "./Story";

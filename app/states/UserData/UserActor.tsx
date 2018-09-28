@@ -1,4 +1,4 @@
-import { MasterData } from "../MasterData/index";
+import * as Models from "../MasterData/index";
 import { observable, computed } from "mobx";
 import { Savable } from "./Savable";
 
@@ -7,6 +7,6 @@ export class UserActor extends Savable<UserActor> {
     @observable level!: number;
 
     @computed get actor() {
-        return MasterData.Actor.find(this.actorId);
+        return Models.$Actor.find(this.actorId);
     }
 }

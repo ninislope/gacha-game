@@ -1,10 +1,15 @@
-import { Rarity } from "./Rarity";
-import { EffectiveItemBaseProps } from "./EffectiveItemBase";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class StateProps extends EffectiveItemBaseProps<StateProps> {
-    readonly rarity!: Rarity;
+export class StateExt {
+}
+export class StateListExt {
 }
 
-export class State extends StateProps {
+applyRecordExtension(Models.State, StateExt);
+applyRecordExtension(Models.StateList, StateListExt);
 
+declare module "./Models" {
+    interface State extends StateExt { }
+    interface StateList extends StateListExt { }
 }

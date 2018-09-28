@@ -1,0 +1,3 @@
+name: string?
+weight: number
+contentIds: GachaContent[]

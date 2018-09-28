@@ -1,11 +1,15 @@
-import { BasicData } from "./BasicData";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class ItemProps extends BasicData<ItemProps> {
-    readonly id!: number;
-    readonly name!: string;
-    readonly description!: string;
+export class ItemExt {
+}
+export class ItemListExt {
 }
 
-export class Item extends ItemProps {
+applyRecordExtension(Models.Item, ItemExt);
+applyRecordExtension(Models.ItemList, ItemListExt);
 
+declare module "./Models" {
+    interface Item extends ItemExt { }
+    interface ItemList extends ItemListExt { }
 }

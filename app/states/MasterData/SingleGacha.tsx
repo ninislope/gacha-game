@@ -1,11 +1,15 @@
-import { BasicData } from "./BasicData";
-import { Gacha } from "./Gacha";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-/** ガチャ */
-export class SingleGachaProps extends BasicData<SingleGachaProps> {
-    readonly name!: string;
-    readonly gacha!: Gacha;
+export class SingleGachaExt {
+}
+export class SingleGachaListExt {
 }
 
-export class SingleGacha extends SingleGachaProps {
+applyRecordExtension(Models.SingleGacha, SingleGachaExt);
+applyRecordExtension(Models.SingleGachaList, SingleGachaListExt);
+
+declare module "./Models" {
+    interface SingleGacha extends SingleGachaExt { }
+    interface SingleGachaList extends SingleGachaListExt { }
 }

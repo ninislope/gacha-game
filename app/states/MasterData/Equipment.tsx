@@ -1,16 +1,15 @@
-import { Rarity } from "./Rarity";
-import { Effect } from "./Effect";
-import { EquipmentPart } from "./EquipmentPart";
-import { EquipmentType } from "./EquipmentType";
-import { EffectiveItemBaseProps } from "./EffectiveItemBase";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export class EquipmentProps extends EffectiveItemBaseProps<EquipmentProps> {
-    readonly rarity!: Rarity;
-    readonly type!: EquipmentType;
-    /** 装備部位 複数個所を覆う場合はビット&で指定、付けられる部位を選択できる場合は配列の複数要素に指定 */
-    readonly parts!: EquipmentPart[];
+export class EquipmentExt {
+}
+export class EquipmentListExt {
 }
 
-export class Equipment extends EquipmentProps {
+applyRecordExtension(Models.Equipment, EquipmentExt);
+applyRecordExtension(Models.EquipmentList, EquipmentListExt);
 
+declare module "./Models" {
+    interface Equipment extends EquipmentExt { }
+    interface EquipmentList extends EquipmentListExt { }
 }

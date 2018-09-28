@@ -1,6 +1,15 @@
-import { GachaContent } from "./GachaContent";
-import { GachaContentGroup } from "./GachaContentGroup";
+import * as Models from "./Models";
+import { applyRecordExtension } from "./applyRecordExtension";
 
-export interface GachaDraw {
-    contents: Array<GachaContent | GachaContentGroup>;
+export class GachaDrawExt {
+}
+export class GachaDrawListExt {
+}
+
+applyRecordExtension(Models.GachaDraw, GachaDrawExt);
+applyRecordExtension(Models.GachaDrawList, GachaDrawListExt);
+
+declare module "./Models" {
+    interface GachaDraw extends GachaDrawExt { }
+    interface GachaDrawList extends GachaDrawListExt { }
 }
