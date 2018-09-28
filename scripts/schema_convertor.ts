@@ -115,13 +115,21 @@ export class Schema {
         this.extend = extend || "BaseRecord";
     }
 
+    get jsonSchemaFileName() { return `${this.name}.schema.json`; }
+
     get ExtensionFileName() { return `${this.name}.tsx`; }
 
     toJsonSchema() {
+        const schema: {[name: string]: object} = {};
+        for (const property of this.properties) {
+            schema[property.name] = property.toJsonSchema();
+        }
         return {
             "$schema": "http://json-schema.org/draft-07/schema",
             "title": this.name,
-            "properties": {},
+            "type": "object",
+            "properties": schema,
+            "required": this.properties.filter(property => !property.optional).map(property => property.name),
         };
     }
 
@@ -228,9 +236,12 @@ export class SchemaPropertyProps {
 
 export class SchemaProperty extends SchemaPropertyProps {
     toJsonSchema() {
-        return {
-            type: this.type,
+        const schema = {
+            type: isNative(this.type) ? this.type : "number",
+            title: this.title,
+            refname: this.refname,
         };
+        return this.array ? { type: "array", items: schema } : schema;
     }
 
     toTS(target: "interface" | "class") {
@@ -260,7 +271,11 @@ export class SchemaProperty extends SchemaPropertyProps {
                     ...idTitleLines,
                     `readonly ${this.name}${this.optional ? "?" : "!"}: number${this.array ? "[]" : ""};`,
                     ...titleLines,
-                    `get ${refname}() { return $${this.type}.find${this.array ? "All" : ""}(this.${this.name}); }`,
+                    (
+                        this.optional ?
+                        `get ${refname}() { return this.${this.name} ? $${this.type}.find${this.array ? "All" : ""}(this.${this.name}) : undefined; }` :
+                        `get ${refname}() { return $${this.type}.find${this.array ? "All" : ""}(this.${this.name}); }`
+                    ),
                 ].map(line => line ? "    " + line : "");
             }
         }

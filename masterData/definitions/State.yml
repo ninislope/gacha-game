@@ -1,2 +1,3 @@
 $extend: EffectiveItemBase
 rarityId: Rarity
+type: number

@@ -340,6 +340,37 @@ export class RarityList extends BaseRecordList<IRarity, Rarity> {
 
 export const $Rarity = new RarityList();
 
+export interface ISetObject extends IBaseRecord {
+
+    actorId?: number;
+
+    equipmentId?: number;
+
+    stateIds?: number[];
+}
+
+export class SetObject extends BaseRecord<ISetObject, SetObject> implements ISetObject {
+
+    readonly actorId?: number;
+
+    get actor() { return this.actorId ? $Actor.find(this.actorId) : undefined; }
+
+    readonly equipmentId?: number;
+
+    get equipment() { return this.equipmentId ? $Equipment.find(this.equipmentId) : undefined; }
+
+    readonly stateIds?: number[];
+
+    get states() { return this.stateIds ? $State.findAll(this.stateIds) : undefined; }
+}
+
+export class SetObjectList extends BaseRecordList<ISetObject, SetObject> {
+    readonly name = "SetObject";
+    readonly recordClass = SetObject;
+}
+
+export const $SetObject = new SetObjectList();
+
 export interface ISingleGacha extends IBaseRecord {
 
     name: string;
@@ -379,6 +410,8 @@ export const $Skill = new SkillList();
 export interface IState extends IEffectiveItemBase {
 
     rarityId: number;
+
+    type: number;
 }
 
 export class State extends EffectiveItemBase<IState, State> implements IState {
@@ -386,6 +419,8 @@ export class State extends EffectiveItemBase<IState, State> implements IState {
     readonly rarityId!: number;
 
     get rarity() { return $Rarity.find(this.rarityId); }
+
+    readonly type!: number;
 }
 
 export class StateList extends EffectiveItemBaseList<IState, State> {

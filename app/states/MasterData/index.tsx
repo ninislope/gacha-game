@@ -15,6 +15,7 @@ import "./GachaDrawTypeName";
 import "./GachaSchedule";
 import "./Item";
 import "./Rarity";
+import "./SetObject";
 import "./SingleGacha";
 import "./Skill";
 import "./State";
