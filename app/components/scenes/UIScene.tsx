@@ -68,7 +68,7 @@ export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHom
     <div className={scene}>
         <div className={titleBarStyle}>
             <div className={titleBarContentStyle}>
-                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home")}>⮜</button>}
+                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home", false)}>⮜</button>}
                 <span className={titleStyle}>{title}</span>
             </div>
         </div>

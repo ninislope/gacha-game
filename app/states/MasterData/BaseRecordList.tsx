@@ -11,8 +11,9 @@ export abstract class BaseRecordList<IRecord extends {id: number}, Record extend
 
     private fetching?: Promise<void>;
 
-    async load() {
-        if (!this.records.length) await this.fetchData();
+    load() {
+        if (this.records.length) return;
+        return this.fetchData();
     }
 
     async fetchData() {
