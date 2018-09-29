@@ -22,7 +22,7 @@ export interface BaseProps {
 
 export type Optional<T> = { [P in keyof T]+?: T[P] };
 
-export interface ButtonProps extends Optional<CenterProps>, React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends Optional<CenterProps>, React.HTMLAttributes<HTMLDivElement> {
     relative?: boolean;
     fontSize?: string;
     color?: string;
@@ -34,10 +34,11 @@ export interface ButtonProps extends Optional<CenterProps>, React.HTMLAttributes
 
 
 export const Button: React.SFC<ButtonProps> = (props) =>
-    <button {...props}
+    <div {...props}
         className={button}
         style={{
             fontSize: props.fontSize || "1rem",
+            lineHeight: props.height || "2rem",
             position: props.relative ? "relative" : "absolute",
             color: props.color || "#fff",
             background: props.background || "#f00",
@@ -45,8 +46,8 @@ export const Button: React.SFC<ButtonProps> = (props) =>
             ...center({height: "2rem", ...props} as CenterProps),
             ...(props.style || {}),
         }}>
-        <span className={buttonText}>{props.children}</span>
-    </button>;
+        <div className={buttonText}>{props.children}</div>
+    </div>;
 
 export const SmallButton: React.SFC<ButtonProps> = (props) =>
     <Button width="8rem" height="2rem" {...props} style={{fontSize: "1rem", ...(props.style || {})}}>{props.children}</Button>
