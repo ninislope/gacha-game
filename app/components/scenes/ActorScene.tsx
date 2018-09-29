@@ -7,7 +7,7 @@ import { UserActorView } from "../components/UserActorView";
 export const ActorScene = observer(({store}: BaseProps) => {
     const userActor = store.sceneStates.actor.userActor;
     const actor = userActor.actor;
-    return <UIScene title="ヒロイン" store={store} backTo="actors">
+    return <UIScene title="ヒロイン" store={store} backTo="actors" backEffect={false}>
         <div style={{display: "flex", position: "absolute", bottom: "0%", height: "90%"}}>
             <UserActorView
                 userActor={userActor}

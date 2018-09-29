@@ -29,7 +29,7 @@ export class Store {
      * @param sceneId 次のシーン
      * @param forward 進む遷移か？
      */
-    callGoto(sceneId: SceneId, forward = true) {
+    callGoto(sceneId: SceneId, forward: boolean | null = true) {
         return (() => this.SceneManager.goto(sceneId, forward));
     }
 }

@@ -38,7 +38,7 @@ export class SceneManager {
      * @param sceneId 次のシーン
      * @param forward 進む遷移か？
      */
-    @action async goto(sceneId: SceneId, forward = true) {
+    @action async goto(sceneId: SceneId, forward: boolean | null = true) {
         if (this.sceneId === sceneId) return;
         this.forward = forward;
         this.nextSceneId = sceneId;
@@ -54,8 +54,8 @@ export class SceneManager {
     @observable sceneId: SceneId = "start";
     /** 次のシーンID */
     @observable nextSceneId: SceneId = "start";
-    /** 進む遷移か？ */
-    @observable forward = true;
+    /** 進む遷移か？ falseなら戻る nullなら遷移アニメーションをかけない */
+    @observable forward: boolean | null = true;
     /** 次のシーンで必要な基本リソース */
     @computed get nextSceneNeeds() { return scenes[this.nextSceneId].need as string[] }
     /** 次のシーンで必要な追加リソース */

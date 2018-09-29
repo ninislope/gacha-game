@@ -62,13 +62,14 @@ export interface UISceneProps extends BaseProps {
     title: string;
     hideHomeButton?: boolean;
     backTo?: SceneId;
+    backEffect?: boolean;
 }
 
-export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHomeButton, children, backTo}: UISceneProps) => (
+export const UIScene: React.SFC<UISceneProps> = observer(({store, title, hideHomeButton, children, backTo, backEffect}: UISceneProps) => (
     <div className={scene}>
         <div className={titleBarStyle}>
             <div className={titleBarContentStyle}>
-                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home", false)}>⮜</button>}
+                {hideHomeButton ? "" : <button className={backButtonStyle} onClick={() => store.SceneManager.goto(backTo || "home", backEffect === false ? null : false)}>⮜</button>}
                 <span className={titleStyle}>{title}</span>
             </div>
         </div>

@@ -22,11 +22,12 @@ const forwardIn = Style.registerStyle({ animation: `${forwardInKeyFrame} 150ms e
 const forwardOut = Style.registerStyle({ animation: `${forwardOutKeyFrame} 150ms ease-out forwards` });
 const backIn = Style.registerStyle({ animation: `${backInKeyFrame} 150ms ease-out forwards` });
 const backOut = Style.registerStyle({ animation: `${backOutKeyFrame} 150ms ease-out forwards` });
+const hidden = Style.registerStyle({ left: "100%" });
 
 export const LoadingLayer = observer(({store}: BaseProps) => {
         const loadManager = store.LoadManager;
         const sceneManager = store.SceneManager;
-        console.log(sceneManager.sceneId, sceneManager.nextSceneId, loadManager.loading);
+        if (sceneManager.forward === null) return <div className={hidden}/>;
         if (sceneManager.sceneId === sceneManager.nextSceneId) {
             return <div style={{background: "#f9f"}} className={`${layer} ${sceneManager.forward ? forwardOut : backOut}`}></div>
         } else {

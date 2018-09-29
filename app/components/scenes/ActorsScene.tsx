@@ -12,7 +12,7 @@ export const ActorsScene = observer(({store}: BaseProps) => (
                     <UserActorView
                         userActor={userActor}
                         withStates={true}
-                        onClick={() => { store.sceneStates.actor.userActor = userActor; store.SceneManager.goto("actor") }}
+                        onClick={() => { store.sceneStates.actor.userActor = userActor; store.SceneManager.goto("actor", null) }}
                         />
                 )
             }
